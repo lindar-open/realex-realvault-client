@@ -1,102 +1,39 @@
 package org.spauny.joy.realvault.client.model.internal;
 
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="tssinfo")
-public class RealExTSSInfo extends RealExBean{
-	@TagValue
-	protected RealExTSSAddress billing;
-	@TagValue
-	protected RealExTSSAddress shipping;
-	
-	@TagName(name="custnum")
-	protected String custNum;
-	@TagName(name="varref")
-	protected String varref;
-	@TagName(name="prodid")
-	protected String prodid;
-	
-	
-	
+@XmlRootElement(name = "tssinfo")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExTSSInfo implements Serializable {
 
-	/**
-	 * @return the custNum
-	 */
-	public String getCustNum() {
-		return custNum;
-	}
+    private static final long serialVersionUID = -7125707384976754467L;
 
-	/**
-	 * @param custNum the custNum to set
-	 */
-	public void setCustNum(String custNum) {
-		this.custNum = custNum;
-	}
+    @XmlElement
+    private RealExTSSAddress billing;
+    @XmlElement
+    private RealExTSSAddress shipping;
 
-	/**
-	 * @return the varref
-	 */
-	public String getVarref() {
-		return varref;
-	}
+    @XmlElement(name = "custnum")
+    private String custNum;
+    @XmlElement(name = "varref")
+    private String varref;
+    @XmlElement(name = "prodid")
+    private String prodid;
 
-	/**
-	 * @param varref the varref to set
-	 */
-	public void setVarref(String varref) {
-		this.varref = varref;
-	}
-
-	/**
-	 * @return the prodid
-	 */
-	public String getProdid() {
-		return prodid;
-	}
-
-	/**
-	 * @param prodid the prodid to set
-	 */
-	public void setProdid(String prodid) {
-		this.prodid = prodid;
-	}
-
-	/**
-	 * @return the billing
-	 */
-	public RealExTSSAddress getBilling() {
-		return billing;
-	}
-
-	/**
-	 * @param billing the billing to set
-	 */
-	public void setBilling(RealExTSSAddress billing) {
-		this.billing = billing;
-	}
-
-	/**
-	 * @return the shipping
-	 */
-	public RealExTSSAddress getShipping() {
-		return shipping;
-	}
-
-	/**
-	 * @param shipping the shipping to set
-	 */
-	public void setShipping(RealExTSSAddress shipping) {
-		this.shipping = shipping;
-	}
-
-	public RealExTSSInfo(RealExTSSAddress billing, RealExTSSAddress shipping) {
-		super();
-		this.billing = billing;
-		this.shipping = shipping;
-	}
-	
-	
-	
+    public RealExTSSInfo(RealExTSSAddress billing, RealExTSSAddress shipping) {
+        super();
+        this.billing = billing;
+        this.shipping = shipping;
+    }
 
 }

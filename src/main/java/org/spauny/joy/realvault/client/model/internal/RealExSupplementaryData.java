@@ -1,35 +1,25 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import org.spauny.joy.realvault.client.annotations.TagName;
+@XmlRootElement(name = "supplementarydata")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExSupplementaryData implements Serializable {
 
-@TagName(name="supplementarydata")
-public class RealExSupplementaryData extends RealExBean{
-	
-	@TagName(name="item")
-	protected List<RealExSupplementaryDataItem> item;
+    private static final long serialVersionUID = 6739965511704923755L;
 
-	/**
-	 * @return the item
-	 */
-	public List<RealExSupplementaryDataItem> getItem() {
-		return item;
-	}
-
-	/**
-	 * @param item the item to set
-	 */
-	public void setItem(List<RealExSupplementaryDataItem> item) {
-		this.item = item;
-	}
-
-	public RealExSupplementaryData(List<RealExSupplementaryDataItem> item) {
-		super();
-		this.item = item;
-	}
-	
-	
-	
+    @XmlElement(name = "item")
+    private List<RealExSupplementaryDataItem> item;
 
 }

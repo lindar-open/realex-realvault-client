@@ -1,32 +1,23 @@
 package org.spauny.joy.realvault.client.model.internal;
 
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="autosettle")
-public class RealExAutoSettle extends RealExBean{
-	@TagAttribute(name="flag")
-	protected String flag;
+@XmlRootElement(name = "autosettle")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExAutoSettle implements Serializable {
 
-	/**
-	 * @return the flag
-	 */
-	public String getFlag() {
-		return flag;
-	}
+    private static final long serialVersionUID = 3360392440856283878L;
 
-	/**
-	 * @param flag the flag to set
-	 */
-	public void setFlag(String flag) {
-		this.flag = flag;
-	}
-
-	public RealExAutoSettle(String flag) {
-		super();
-		this.flag = flag;
-	}
-	
-	
-
+    @XmlAttribute(name = "flag")
+    private String flag;
 }

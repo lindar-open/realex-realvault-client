@@ -1,11 +1,12 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
 
 @TagName(name="comment")
-public class RealExComment extends RealExBean{
+public class RealExComment implements Serializable {
 	@TagAttribute(name="id")
 	protected String id;
 	@TagValue

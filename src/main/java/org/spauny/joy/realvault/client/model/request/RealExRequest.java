@@ -1,7 +1,7 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.model.internal.RealExBean;
+import java.io.Serializable;
 
-public class RealExRequest extends RealExBean {
+public interface RealExRequest extends Serializable {
 
 }

@@ -1,11 +1,12 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
 
 @TagName(name="country")
-public class RealExCountryCode extends RealExBean{
+public class RealExCountryCode implements Serializable {
 	@TagAttribute(name="code")
 	protected String countryCode;
 	@TagValue

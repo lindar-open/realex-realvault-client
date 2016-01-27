@@ -1,68 +1,31 @@
 package org.spauny.joy.realvault.client.model.internal;
 
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="address")
-public class RealExTSSAddress extends RealExBean{
-	@TagAttribute(name="type")
-	protected String type;
-	
-	@TagName(name="code")
-	protected String code;
-	
-	@TagName(name="country")
-	protected String country;
+@XmlRootElement(name = "address")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExTSSAddress implements Serializable {
 
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
+    private static final long serialVersionUID = 7807568684306870865L;
 
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+    @XmlAttribute(name = "type")
+    private String type;
 
-	/**
-	 * @return the code
-	 */
-	public String getCode() {
-		return code;
-	}
+    @XmlElement(name = "code")
+    private String code;
 
-	/**
-	 * @param code the code to set
-	 */
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	/**
-	 * @return the country
-	 */
-	public String getCountry() {
-		return country;
-	}
-
-	/**
-	 * @param country the country to set
-	 */
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public RealExTSSAddress(String type, String code, String country) {
-		super();
-		this.type = type;
-		this.code = code;
-		this.country = country;
-	}
-	
-	
+    @XmlElement(name = "country")
+    private String country;
 
 }

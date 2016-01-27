@@ -1,12 +1,12 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.model.internal.RealExCard;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
+import org.spauny.joy.realvault.client.model.internal.RealExCard;
 
 @TagName(name="request")
-public class RealExUpdateCardRequest extends RealExRequest{
+public class RealExUpdateCardRequest implements RealExRequest{
 	@TagAttribute(name="type")
 	protected String type="card-update-card";
 	@TagAttribute(name="timestamp")

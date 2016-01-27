@@ -1,10 +1,14 @@
 package org.spauny.joy.realvault.client.model.response;
 
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.spauny.joy.realvault.client.model.internal.RealExBean;
+import lombok.NoArgsConstructor;
 
 @Data
-public class RealExResponse extends RealExBean {
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExResponse implements Serializable {
 
     private static final long serialVersionUID = -8294328990441372627L;
 
@@ -34,24 +38,5 @@ public class RealExResponse extends RealExBean {
 
     private String sha1hash;
 
-    public RealExResponse(String timestamp, String merchantId, String account,
-            String orderId, String result, String message, String pasref,
-            String authcode, String batchId, String timetaken,
-            String processingtimetaken, String md5hash, String sha1hash) {
-        super();
-        this.timestamp = timestamp;
-        this.merchantId = merchantId;
-        this.account = account;
-        this.orderId = orderId;
-        this.result = result;
-        this.message = message;
-        this.pasref = pasref;
-        this.authcode = authcode;
-        this.batchId = batchId;
-        this.timetaken = timetaken;
-        this.processingtimetaken = processingtimetaken;
-        this.md5hash = md5hash;
-        this.sha1hash = sha1hash;
-    }
 
 }

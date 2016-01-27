@@ -1,13 +1,13 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.model.internal.RealExComments;
-import org.spauny.joy.realvault.client.model.internal.RealExPayer;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
+import org.spauny.joy.realvault.client.model.internal.RealExComments;
+import org.spauny.joy.realvault.client.model.internal.RealExPayer;
 
 @TagName(name="request")
-public class RealExEditExistingPayerRequest extends RealExRequest{
+public class RealExEditExistingPayerRequest implements RealExRequest{
 	@TagAttribute(name="type")
 	protected String type;
 	@TagAttribute(name="timestamp")

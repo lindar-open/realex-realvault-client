@@ -8,7 +8,7 @@ import org.spauny.joy.realvault.client.model.internal.RealExAutoSettle;
 import org.spauny.joy.realvault.client.model.internal.RealExComments;
 
 @TagName(name = "request")
-public class RealEx3DSecuredEnabledRequest extends RealExRequest {
+public class RealEx3DSecuredEnabledRequest implements RealExRequest {
 
     private static final long serialVersionUID = -3773912045971606471L;
 

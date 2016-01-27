@@ -1,5 +1,8 @@
 package org.spauny.joy.realvault.client.model.request;
 
+import org.spauny.joy.realvault.client.annotations.TagAttribute;
+import org.spauny.joy.realvault.client.annotations.TagName;
+import org.spauny.joy.realvault.client.annotations.TagValue;
 import org.spauny.joy.realvault.client.model.internal.RealExAmount;
 import org.spauny.joy.realvault.client.model.internal.RealExAutoSettle;
 import org.spauny.joy.realvault.client.model.internal.RealExComments;
@@ -8,12 +11,9 @@ import org.spauny.joy.realvault.client.model.internal.RealExMPI;
 import org.spauny.joy.realvault.client.model.internal.RealExPaymentData;
 import org.spauny.joy.realvault.client.model.internal.RealExSupplementaryData;
 import org.spauny.joy.realvault.client.model.internal.RealExTSSInfo;
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
 
 @TagName(name="request")
-public class RealExRaisingRefundRequest extends RealExRequest{
+public class RealExRaisingRefundRequest implements RealExRequest{
 	@TagAttribute(name="type")
 	protected String type="payment-out";
 	@TagAttribute(name="timestamp")

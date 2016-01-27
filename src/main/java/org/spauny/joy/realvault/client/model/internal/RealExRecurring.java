@@ -1,10 +1,11 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 
 @TagName(name="recurring")
-public class RealExRecurring extends RealExBean{
+public class RealExRecurring implements Serializable {
 	@TagAttribute(name="type")
 	protected String type;
 	

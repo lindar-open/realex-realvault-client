@@ -1,12 +1,12 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.model.internal.RealExCard;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
+import org.spauny.joy.realvault.client.model.internal.RealExCard;
 
 @TagName(name="request")
-public class RealExDeleteCardRequest extends RealExRequest{
+public class RealExDeleteCardRequest implements RealExRequest{
 	@TagAttribute(name="type")
 	protected String type="card-cancel-card";
 	@TagAttribute(name="timestamp")

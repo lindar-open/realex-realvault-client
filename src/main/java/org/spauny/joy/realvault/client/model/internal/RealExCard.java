@@ -1,9 +1,10 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import org.spauny.joy.realvault.client.annotations.TagName;
 
 @TagName(name="card")
-public class RealExCard extends RealExBean{
+public class RealExCard implements Serializable {
 	@TagName(name="ref")
 	protected String ref;
 	@TagName(name="payerref")

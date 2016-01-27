@@ -1,47 +1,27 @@
 package org.spauny.joy.realvault.client.model.internal;
 
-import org.spauny.joy.realvault.client.annotations.TagName;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="paymentdata")
-public class RealExPaymentData extends RealExBean{
-	@TagName(name="cvn")
-	protected String cvn;
-	@TagName(name="number")
-	protected String number;
-	/**
-	 * @return the cvn
-	 */
-	public String getCvn() {
-		return cvn;
-	}
-	/**
-	 * @param cvn the cvn to set
-	 */
-	public void setCvn(String cvn) {
-		this.cvn = cvn;
-	}
-	/**
-	 * @return the number
-	 */
-	public String getNumber() {
-		return number;
-	}
-	/**
-	 * @param number the number to set
-	 */
-	public void setNumber(String number) {
-		this.number = number;
-	}
-	public RealExPaymentData(String cvn, String number) {
-		super();
-		this.cvn = cvn;
-		this.number = number;
-	}
-	
-	
-	
-	
-	
-	
+@XmlRootElement(name = "paymentdata")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExPaymentData implements Serializable {
+
+    private static final long serialVersionUID = 2519206691467842599L;
+
+    @XmlElement(name = "cvn")
+    private String cvn;
+
+    @XmlElement(name = "number")
+    private String number;
 
 }

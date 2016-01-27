@@ -1,81 +1,32 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+@XmlRootElement(name = "item")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExSupplementaryDataItem implements Serializable {
 
-@TagName(name="item")
-public class RealExSupplementaryDataItem  extends RealExBean{
-	@TagAttribute(name="type")
-	protected String type;
-	
-	@TagName(name="field",isSuffixIncremental="incremental")
-	protected List<String> fields;
+    private static final long serialVersionUID = -3977333746689503569L;
 
-	@TagValue
-	protected Map<String,String> fieldMap;
+    @XmlAttribute(name = "type")
+    private String type;
 
-	
-	
-	/**
-	 * @return the fieldMap
-	 */
-	public Map<String, String> getFieldMap() {
-		return fieldMap;
-	}
+    @XmlElement(name = "field") // TODO ,isSuffixIncremental="incremental"
+    private List<String> fields;
 
-	/**
-	 * @param fieldMap the fieldMap to set
-	 */
-	public void setFieldMap(Map<String, String> fieldMap) {
-		this.fieldMap = fieldMap;
-	}
-
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	/**
-	 * @return the fields
-	 */
-	public List<String> getFields() {
-		return fields;
-	}
-
-	/**
-	 * @param fields the fields to set
-	 */
-	public void setFields(List<String> fields) {
-		this.fields = fields;
-	}
-
-	public RealExSupplementaryDataItem(String type, List<String> fields) {
-		super();
-		this.type = type;
-		this.fields = fields;
-	}
-
-	public RealExSupplementaryDataItem(String type, Map<String, String> fieldMap) {
-		super();
-		this.type = type;
-		this.fieldMap = fieldMap;
-	}
-	
-	
-	
-	
+//    @XmlValue
+//    private Map<String, String> fieldMap;
 
 }

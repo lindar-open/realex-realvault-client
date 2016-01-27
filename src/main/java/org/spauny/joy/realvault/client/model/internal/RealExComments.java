@@ -1,33 +1,25 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import org.spauny.joy.realvault.client.annotations.TagName;
+@XmlRootElement(name = "comments")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExComments implements Serializable {
 
-@TagName(name="comments")
-public class RealExComments extends RealExBean{
-	@TagName(name="comment")
-	protected List<RealExComment> comments;
+    private static final long serialVersionUID = 8960842949030755187L;
 
-	/**
-	 * @return the comments
-	 */
-	public List<RealExComment> getComments() {
-		return comments;
-	}
-
-	/**
-	 * @param comments the comments to set
-	 */
-	public void setComments(List<RealExComment> comments) {
-		this.comments = comments;
-	}
-
-	public RealExComments(List<RealExComment> comments) {
-		super();
-		this.comments = comments;
-	}
-	
-	
+    @XmlElement(name = "comment")
+    private List<RealExComment> comments;
 
 }

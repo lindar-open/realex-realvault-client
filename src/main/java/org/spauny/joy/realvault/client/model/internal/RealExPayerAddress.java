@@ -1,9 +1,10 @@
 package org.spauny.joy.realvault.client.model.internal;
 
+import java.io.Serializable;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
 @TagName(name="address")
-public class RealExPayerAddress extends RealExBean{
+public class RealExPayerAddress implements Serializable {
 	@TagName(name="line1")
 	protected String line1;
 	@TagName(name="line2")

@@ -1,13 +1,13 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.model.internal.RealExAmount;
-import org.spauny.joy.realvault.client.model.internal.RealExComments;
 import org.spauny.joy.realvault.client.annotations.TagAttribute;
 import org.spauny.joy.realvault.client.annotations.TagName;
 import org.spauny.joy.realvault.client.annotations.TagValue;
+import org.spauny.joy.realvault.client.model.internal.RealExAmount;
+import org.spauny.joy.realvault.client.model.internal.RealExComments;
 
 @TagName(name="request")
-public class RealExDCCSecuredEnabledRequest extends RealExRequest{
+public class RealExDCCSecuredEnabledRequest implements RealExRequest{
 	@TagAttribute(name="type")
 	protected String type="realvault-dccrate";
 	@TagAttribute(name="timestamp")

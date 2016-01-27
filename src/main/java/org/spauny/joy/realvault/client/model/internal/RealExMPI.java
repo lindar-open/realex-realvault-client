@@ -1,61 +1,30 @@
 package org.spauny.joy.realvault.client.model.internal;
 
-import org.spauny.joy.realvault.client.annotations.TagName;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="mpi")
-public class RealExMPI extends RealExBean{
-	@TagName(name="cavv")
-	protected String cavv;
-	@TagName(name="xid")
-	protected String xid;
-	@TagName(name="eci")
-	protected String eci;
-	/**
-	 * @return the cavv
-	 */
-	public String getCavv() {
-		return cavv;
-	}
-	/**
-	 * @param cavv the cavv to set
-	 */
-	public void setCavv(String cavv) {
-		this.cavv = cavv;
-	}
-	/**
-	 * @return the xid
-	 */
-	public String getXid() {
-		return xid;
-	}
-	/**
-	 * @param xid the xid to set
-	 */
-	public void setXid(String xid) {
-		this.xid = xid;
-	}
-	/**
-	 * @return the eci
-	 */
-	public String getEci() {
-		return eci;
-	}
-	/**
-	 * @param eci the eci to set
-	 */
-	public void setEci(String eci) {
-		this.eci = eci;
-	}
-	public RealExMPI(String cavv, String xid, String eci) {
-		super();
-		this.cavv = cavv;
-		this.xid = xid;
-		this.eci = eci;
-	}
+@XmlRootElement(name = "mpi")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExMPI implements Serializable {
 
-	
-	
-	
-	
+    private static final long serialVersionUID = 8579068452203929578L;
+
+    @XmlElement(name = "cavv")
+    private String cavv;
+
+    @XmlElement(name = "xid")
+    private String xid;
+
+    @XmlElement(name = "eci")
+    private String eci;
 
 }
