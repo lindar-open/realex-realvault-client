@@ -1,53 +1,26 @@
 package org.spauny.joy.realvault.client.model.internal;
 
 import java.io.Serializable;
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="recurring")
+@XmlRootElement(name = "recurring")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RealExRecurring implements Serializable {
-	@TagAttribute(name="type")
-	protected String type;
-	
-	@TagAttribute(name="sequence")
-	protected String sequence;
 
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
+    private static final long serialVersionUID = -1554530485723909793L;
 
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+    @XmlAttribute(name = "type")
+    private String type;
 
-	/**
-	 * @return the sequence
-	 */
-	public String getSequence() {
-		return sequence;
-	}
-
-	/**
-	 * @param sequence the sequence to set
-	 */
-	public void setSequence(String sequence) {
-		this.sequence = sequence;
-	}
-
-	public RealExRecurring(String type, String sequence) {
-		super();
-		this.type = type;
-		this.sequence = sequence;
-	}
-	
-	
-
-	
-
+    @XmlAttribute(name = "sequence")
+    private String sequence;
 }

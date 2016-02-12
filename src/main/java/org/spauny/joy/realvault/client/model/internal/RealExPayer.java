@@ -1,172 +1,39 @@
 package org.spauny.joy.realvault.client.model.internal;
 
 import java.io.Serializable;
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="payer")
+@XmlRootElement(name = "payer")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RealExPayer implements Serializable {
-	@TagAttribute(name="type")
-	protected String type;
-	@TagAttribute(name="ref")
-	protected String ref;
-	@TagName(name="title")
-	protected String title;
-	@TagName(name="firstname")
-	protected String firstName;
-	@TagName(name="surname")
-	protected String surName;
-	@TagName(name="company")
-	protected String company;
-	@TagValue
-	protected RealExPayerAddress address;
-	@TagValue
-	protected RealExPayerPhoneNumbers phoneNumbers;
-	@TagName(name="email")
-	protected String email;
-	@TagValue
-	protected RealExComments comments;
-	
-	
-	public RealExPayer(String type, String ref, String title, String firstName,
-			String surName, String company, RealExPayerAddress address,
-			RealExPayerPhoneNumbers phoneNumbers, String email,
-			RealExComments comments) {
-		super();
-		this.type = type;
-		this.ref = ref;
-		this.title = title;
-		this.firstName = firstName;
-		this.surName = surName;
-		this.company = company;
-		this.address = address;
-		this.phoneNumbers = phoneNumbers;
-		this.email = email;
-		this.comments = comments;
-	}
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
-	/**
-	 * @return the ref
-	 */
-	public String getRef() {
-		return ref;
-	}
-	/**
-	 * @param ref the ref to set
-	 */
-	public void setRef(String ref) {
-		this.ref = ref;
-	}
-	/**
-	 * @return the title
-	 */
-	public String getTitle() {
-		return title;
-	}
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	/**
-	 * @return the surName
-	 */
-	public String getSurName() {
-		return surName;
-	}
-	/**
-	 * @param surName the surName to set
-	 */
-	public void setSurName(String surName) {
-		this.surName = surName;
-	}
-	/**
-	 * @return the company
-	 */
-	public String getCompany() {
-		return company;
-	}
-	/**
-	 * @param company the company to set
-	 */
-	public void setCompany(String company) {
-		this.company = company;
-	}
-	/**
-	 * @return the address
-	 */
-	public RealExPayerAddress getAddress() {
-		return address;
-	}
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(RealExPayerAddress address) {
-		this.address = address;
-	}
-	/**
-	 * @return the phoneNumbers
-	 */
-	public RealExPayerPhoneNumbers getPhoneNumbers() {
-		return phoneNumbers;
-	}
-	/**
-	 * @param phoneNumbers the phoneNumbers to set
-	 */
-	public void setPhoneNumbers(RealExPayerPhoneNumbers phoneNumbers) {
-		this.phoneNumbers = phoneNumbers;
-	}
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	/**
-	 * @return the comments
-	 */
-	public RealExComments getComments() {
-		return comments;
-	}
-	/**
-	 * @param comments the comments to set
-	 */
-	public void setComments(RealExComments comments) {
-		this.comments = comments;
-	}
-	
-	
-	
-
+	@XmlAttribute(name="type")
+	private String type;
+	@XmlAttribute(name="ref")
+	private String ref;
+	@XmlElement(name="title")
+	private String title;
+	@XmlElement(name="firstname")
+	private String firstName;
+	@XmlElement(name="surname")
+	private String surName;
+	@XmlElement(name="company")
+	private String company;
+	@XmlElement
+	private RealExPayerAddress address;
+	@XmlElement
+	private RealExPayerPhoneNumbers phoneNumbers;
+	@XmlElement(name="email")
+	private String email;
+	@XmlElement
+	private RealExComments comments;
 }

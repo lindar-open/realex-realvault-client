@@ -1,126 +1,47 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.spauny.joy.realvault.client.model.internal.RealExCard;
 import org.spauny.joy.realvault.client.model.internal.RealExComments;
 import org.spauny.joy.realvault.client.model.internal.RealExPayer;
 
-@TagName(name="request")
-public class RealExSetupNewPayerRequest implements RealExRequest{
-	@TagAttribute(name="type")
-	protected String type="payer-new";
-	@TagAttribute(name="timestamp")
-	protected String timestamp;
-	@TagName(name="merchantid")
-	protected String merchantId;
-	@TagName(name="orderid")
-	protected String orderId;
-	@TagName(name="sha1hash")
-	protected String sha1hash;
-	@TagValue
-	protected RealExPayer payer;
-	@TagValue
-	protected RealExComments comments;
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
-	/**
-	 * @return the timestamp
-	 */
-	public String getTimestamp() {
-		return timestamp;
-	}
-	/**
-	 * @param timestamp the timestamp to set
-	 */
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
-	}
-	/**
-	 * @return the merchantId
-	 */
-	public String getMerchantId() {
-		return merchantId;
-	}
-	/**
-	 * @param merchantId the merchantId to set
-	 */
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
-	}
-	/**
-	 * @return the orderId
-	 */
-	public String getOrderId() {
-		return orderId;
-	}
-	/**
-	 * @param orderId the orderId to set
-	 */
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
-	/**
-	 * @return the sha1hash
-	 */
-	public String getSha1hash() {
-		return sha1hash;
-	}
-	/**
-	 * @param sha1hash the sha1hash to set
-	 */
-	public void setSha1hash(String sha1hash) {
-		this.sha1hash = sha1hash;
-	}
-	/**
-	 * @return the payer
-	 */
-	public RealExPayer getPayer() {
-		return payer;
-	}
-	/**
-	 * @param payer the payer to set
-	 */
-	public void setPayer(RealExPayer payer) {
-		this.payer = payer;
-	}
-	/**
-	 * @return the comments
-	 */
-	public RealExComments getComments() {
-		return comments;
-	}
-	/**
-	 * @param comments the comments to set
-	 */
-	public void setComments(RealExComments comments) {
-		this.comments = comments;
-	}
-	public RealExSetupNewPayerRequest( String timestamp,
-			String merchantId, String orderId, String sha1hash,
-			RealExPayer payer, RealExComments comments) {
-		super();
-		
-		this.timestamp = timestamp;
-		this.merchantId = merchantId;
-		this.orderId = orderId;
-		this.sha1hash = sha1hash;
-		this.payer = payer;
-		this.comments = comments;
-	}
-	
-	
-	
-	
+@XmlRootElement(name = "request")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExSetupNewPayerRequest implements RealExRequest {
 
+    private static final long serialVersionUID = 22833453374673833L;
+
+    @XmlAttribute(name = "type", required = true)
+    private String type = "payer-new";
+
+    @XmlAttribute(name = "timestamp", required = true)
+    private String timestamp;
+
+    @XmlElement(name = "merchantid", required = true)
+    private String merchantId;
+
+    @XmlElement(required = true)
+    private RealExCard card;
+
+    @XmlElement(name = "orderid")
+    private String orderId;
+
+    @XmlElement(name = "sha1hash", required = true)
+    private String sha1hash;
+
+    @XmlElement
+    private RealExPayer payer;
+
+    @XmlElement
+    private RealExComments comments;
 }

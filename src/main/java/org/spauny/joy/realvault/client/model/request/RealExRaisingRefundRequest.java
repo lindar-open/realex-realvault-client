@@ -1,324 +1,179 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.spauny.joy.realvault.client.model.internal.RealExAmount;
-import org.spauny.joy.realvault.client.model.internal.RealExAutoSettle;
 import org.spauny.joy.realvault.client.model.internal.RealExComments;
 import org.spauny.joy.realvault.client.model.internal.RealExDCCInfo;
 import org.spauny.joy.realvault.client.model.internal.RealExMPI;
-import org.spauny.joy.realvault.client.model.internal.RealExPaymentData;
 import org.spauny.joy.realvault.client.model.internal.RealExSupplementaryData;
 import org.spauny.joy.realvault.client.model.internal.RealExTSSInfo;
 
-@TagName(name="request")
-public class RealExRaisingRefundRequest implements RealExRequest{
-	@TagAttribute(name="type")
-	protected String type="payment-out";
-	@TagAttribute(name="timestamp")
-	protected String timestamp;
-	@TagName(name="merchantid")
-	protected String merchantId;
-	@TagName(name="account")
-	protected String account;
-	@TagName(name="orderid")
-	protected String orderId;
-	@TagValue
-	protected RealExPaymentData paymentData;
-	@TagValue
-	protected RealExMPI mpi;
-	@TagValue
-	protected RealExDCCInfo dccInfo;
-	@TagValue
-	protected RealExAmount amount;
-	@TagName(name="payerref")
-	protected String payerRef;
-	@TagName(name="paymentmethod")
-	protected String paymentmethod;
-	@TagValue
-	protected RealExAutoSettle autoSettle;
-	@TagName(name="refundhash")
-	protected String refundhash;
-	
-	@TagName(name="sha1hash")
-	protected String sha1hash;
-	@TagValue
-	protected RealExComments comments;
-	@TagValue
-	protected RealExTSSInfo tssinfo;
-	@TagValue
-	protected RealExSupplementaryData supplementaryData;
+@XmlRootElement(name = "request")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class RealExRaisingRefundRequest implements RealExRequest {
 
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
+    private static final long serialVersionUID = 1041308714898250850L;
 
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+    @XmlAttribute(name = "type", required = true)
+    private String type = "payment-out";
 
-	/**
-	 * @return the timestamp
-	 */
-	public String getTimestamp() {
-		return timestamp;
-	}
+    @XmlAttribute(name = "timestamp", required = true)
+    private String timestamp;
+    
+    
+    @XmlElement(name = "merchantid", required = true)
+    private String merchantId;
+    
+    @XmlElement(name = "account", required = true)
+    private String account;
+    
+    @XmlElement(name = "orderid")
+    private String orderId;
+    
+    @XmlElement(name = "payerref", required = true)
+    private String payerRef;
+    
+    @XmlElement(name = "paymentmethod", required = true)
+    private String paymentmethod;
+    
+    @XmlElement(name = "amount", required = true)
+    private RealExAmount amount;
+    
+    @XmlElement(name = "refundhash", required = true)
+    private String refundhash;
 
-	/**
-	 * @param timestamp the timestamp to set
-	 */
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
-	}
+    @XmlElement(name = "sha1hash", required = true)
+    private String sha1hash;
+    
+    
+    @XmlElement
+    private RealExMPI mpi;
+    
+    @XmlElement
+    private RealExDCCInfo dccInfo;
+    
+    @XmlElement
+    private RealExComments comments;
+    
+    @XmlElement
+    private RealExTSSInfo tssinfo;
+    
+    @XmlElement
+    private RealExSupplementaryData supplementaryData;
 
-	/**
-	 * @return the merchantId
-	 */
-	public String getMerchantId() {
-		return merchantId;
-	}
+    public static class Builder {
 
-	/**
-	 * @param merchantId the merchantId to set
-	 */
-	public void setMerchantId(String merchantId) {
-		this.merchantId = merchantId;
-	}
+        private String type = "payment-out";
+        private String timestamp;
+        private String merchantId;
+        private String account;
+        private String orderId;
+        private String payerRef;
+        private String paymentmethod;
+        private RealExAmount amount;
+        private String refundhash;
+        private String sha1hash;
+        private RealExMPI mpi;
+        private RealExDCCInfo dccInfo;
+        private RealExComments comments;
+        private RealExTSSInfo tssinfo;
+        private RealExSupplementaryData supplementaryData;
 
-	/**
-	 * @return the account
-	 */
-	public String getAccount() {
-		return account;
-	}
+        private Builder() {
+        }
 
-	/**
-	 * @param account the account to set
-	 */
-	public void setAccount(String account) {
-		this.account = account;
-	}
+        public Builder type(final String value) {
+            this.type = value;
+            return this;
+        }
 
-	/**
-	 * @return the orderId
-	 */
-	public String getOrderId() {
-		return orderId;
-	}
+        public Builder timestamp(final String value) {
+            this.timestamp = value;
+            return this;
+        }
 
-	/**
-	 * @param orderId the orderId to set
-	 */
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
-	}
+        public Builder merchantId(final String value) {
+            this.merchantId = value;
+            return this;
+        }
 
-	/**
-	 * @return the paymentData
-	 */
-	public RealExPaymentData getPaymentData() {
-		return paymentData;
-	}
+        public Builder account(final String value) {
+            this.account = value;
+            return this;
+        }
 
-	/**
-	 * @param paymentData the paymentData to set
-	 */
-	public void setPaymentData(RealExPaymentData paymentData) {
-		this.paymentData = paymentData;
-	}
+        public Builder orderId(final String value) {
+            this.orderId = value;
+            return this;
+        }
 
-	/**
-	 * @return the mpi
-	 */
-	public RealExMPI getMpi() {
-		return mpi;
-	}
+        public Builder payerRef(final String value) {
+            this.payerRef = value;
+            return this;
+        }
 
-	/**
-	 * @param mpi the mpi to set
-	 */
-	public void setMpi(RealExMPI mpi) {
-		this.mpi = mpi;
-	}
+        public Builder paymentmethod(final String value) {
+            this.paymentmethod = value;
+            return this;
+        }
 
-	/**
-	 * @return the dccInfo
-	 */
-	public RealExDCCInfo getDccInfo() {
-		return dccInfo;
-	}
+        public Builder amount(final RealExAmount value) {
+            this.amount = value;
+            return this;
+        }
 
-	/**
-	 * @param dccInfo the dccInfo to set
-	 */
-	public void setDccInfo(RealExDCCInfo dccInfo) {
-		this.dccInfo = dccInfo;
-	}
+        public Builder refundhash(final String value) {
+            this.refundhash = value;
+            return this;
+        }
 
-	/**
-	 * @return the amount
-	 */
-	public RealExAmount getAmount() {
-		return amount;
-	}
+        public Builder sha1hash(final String value) {
+            this.sha1hash = value;
+            return this;
+        }
 
-	/**
-	 * @param amount the amount to set
-	 */
-	public void setAmount(RealExAmount amount) {
-		this.amount = amount;
-	}
+        public Builder mpi(final RealExMPI value) {
+            this.mpi = value;
+            return this;
+        }
 
-	/**
-	 * @return the payerRef
-	 */
-	public String getPayerRef() {
-		return payerRef;
-	}
+        public Builder dccInfo(final RealExDCCInfo value) {
+            this.dccInfo = value;
+            return this;
+        }
 
-	/**
-	 * @param payerRef the payerRef to set
-	 */
-	public void setPayerRef(String payerRef) {
-		this.payerRef = payerRef;
-	}
+        public Builder comments(final RealExComments value) {
+            this.comments = value;
+            return this;
+        }
 
-	/**
-	 * @return the paymentmethod
-	 */
-	public String getPaymentmethod() {
-		return paymentmethod;
-	}
+        public Builder tssinfo(final RealExTSSInfo value) {
+            this.tssinfo = value;
+            return this;
+        }
 
-	/**
-	 * @param paymentmethod the paymentmethod to set
-	 */
-	public void setPaymentmethod(String paymentmethod) {
-		this.paymentmethod = paymentmethod;
-	}
+        public Builder supplementaryData(final RealExSupplementaryData value) {
+            this.supplementaryData = value;
+            return this;
+        }
 
-	/**
-	 * @return the autoSettle
-	 */
-	public RealExAutoSettle getAutoSettle() {
-		return autoSettle;
-	}
+        public RealExRaisingRefundRequest build() {
+            return new org.spauny.joy.realvault.client.model.request.RealExRaisingRefundRequest(type, timestamp, merchantId, account, orderId, payerRef, paymentmethod, amount, refundhash, sha1hash, mpi, dccInfo, comments, tssinfo, supplementaryData);
+        }
+    }
 
-	/**
-	 * @param autoSettle the autoSettle to set
-	 */
-	public void setAutoSettle(RealExAutoSettle autoSettle) {
-		this.autoSettle = autoSettle;
-	}
-
-	/**
-	 * @return the refundhash
-	 */
-	public String getRefundhash() {
-		return refundhash;
-	}
-
-	/**
-	 * @param refundhash the refundhash to set
-	 */
-	public void setRefundhash(String refundhash) {
-		this.refundhash = refundhash;
-	}
-
-	/**
-	 * @return the sha1hash
-	 */
-	public String getSha1hash() {
-		return sha1hash;
-	}
-
-	/**
-	 * @param sha1hash the sha1hash to set
-	 */
-	public void setSha1hash(String sha1hash) {
-		this.sha1hash = sha1hash;
-	}
-
-	/**
-	 * @return the comments
-	 */
-	public RealExComments getComments() {
-		return comments;
-	}
-
-	/**
-	 * @param comments the comments to set
-	 */
-	public void setComments(RealExComments comments) {
-		this.comments = comments;
-	}
-
-	/**
-	 * @return the tssinfo
-	 */
-	public RealExTSSInfo getTssinfo() {
-		return tssinfo;
-	}
-
-	/**
-	 * @param tssinfo the tssinfo to set
-	 */
-	public void setTssinfo(RealExTSSInfo tssinfo) {
-		this.tssinfo = tssinfo;
-	}
-
-	/**
-	 * @return the supplementaryData
-	 */
-	public RealExSupplementaryData getSupplementaryData() {
-		return supplementaryData;
-	}
-
-	/**
-	 * @param supplementaryData the supplementaryData to set
-	 */
-	public void setSupplementaryData(RealExSupplementaryData supplementaryData) {
-		this.supplementaryData = supplementaryData;
-	}
-
-	public RealExRaisingRefundRequest( String timestamp,
-			String merchantId, String account, String orderId,
-			RealExPaymentData paymentData, RealExMPI mpi,
-			RealExDCCInfo dccInfo, RealExAmount amount, String payerRef,
-			String paymentmethod, RealExAutoSettle autoSettle,
-			String refundhash, String sha1hash, RealExComments comments,
-			RealExTSSInfo tssinfo, RealExSupplementaryData supplementaryData) {
-		super();
-		
-		this.timestamp = timestamp;
-		this.merchantId = merchantId;
-		this.account = account;
-		this.orderId = orderId;
-		this.paymentData = paymentData;
-		this.mpi = mpi;
-		this.dccInfo = dccInfo;
-		this.amount = amount;
-		this.payerRef = payerRef;
-		this.paymentmethod = paymentmethod;
-		this.autoSettle = autoSettle;
-		this.refundhash = refundhash;
-		this.sha1hash = sha1hash;
-		this.comments = comments;
-		this.tssinfo = tssinfo;
-		this.supplementaryData = supplementaryData;
-	}
-	
-	
-
-	
-	
-	
+    public static RealExRaisingRefundRequest.Builder builder() {
+        return new RealExRaisingRefundRequest.Builder();
+    }
 
 }

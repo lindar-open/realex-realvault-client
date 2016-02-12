@@ -6,18 +6,10 @@ import org.spauny.joy.realvault.client.model.response.RealExResponse;
 
 public class RealExHttpUtil {
 
-//    public static RealExResponse getResponse(String url, RealExRequest request) throws Exception {
-//        RealExResponse retVal = RealExBeanToXMLConverterUtil.toResponseBean(
-//                Request.Post(url).bodyString(RealExBeanToXMLConverterUtil.toXML(request), ContentType.APPLICATION_XML)
-//                        .execute().returnContent().asString());
-//
-//        return retVal;
-//    }
-    
     public static RealExResponse getResponse(String url, String requestXml) throws Exception {
         RealExResponse retVal = RealExBeanToXMLConverterUtil.toResponseBean(
                 Request.Post(url).bodyString(requestXml, ContentType.APPLICATION_XML)
-                        .execute().returnContent().asString());
+                .execute().returnContent().asString());
 
         return retVal;
     }

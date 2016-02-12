@@ -1,76 +1,29 @@
 package org.spauny.joy.realvault.client.model.internal;
 
 import java.io.Serializable;
-import org.spauny.joy.realvault.client.annotations.TagName;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="phonenumbers")
+@XmlRootElement(name = "phonenumbers")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RealExPayerPhoneNumbers implements Serializable {
-	@TagName(name="home")
-	protected String home;
-	@TagName(name="work")
-	protected String work;
-	@TagName(name="fax")
-	protected String fax;
-	@TagName(name="mobile")
-	protected String mobile;
-	/**
-	 * @return the home
-	 */
-	public String getHome() {
-		return home;
-	}
-	/**
-	 * @param home the home to set
-	 */
-	public void setHome(String home) {
-		this.home = home;
-	}
-	/**
-	 * @return the work
-	 */
-	public String getWork() {
-		return work;
-	}
-	/**
-	 * @param work the work to set
-	 */
-	public void setWork(String work) {
-		this.work = work;
-	}
-	/**
-	 * @return the fax
-	 */
-	public String getFax() {
-		return fax;
-	}
-	/**
-	 * @param fax the fax to set
-	 */
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-	/**
-	 * @return the mobile
-	 */
-	public String getMobile() {
-		return mobile;
-	}
-	/**
-	 * @param mobile the mobile to set
-	 */
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-	public RealExPayerPhoneNumbers(String home, String work, String fax,
-			String mobile) {
-		super();
-		this.home = home;
-		this.work = work;
-		this.fax = fax;
-		this.mobile = mobile;
-	}
-	
-	
-	
 
+    private static final long serialVersionUID = 1812235194389087396L;
+    
+    @XmlElement(name = "home")
+    private String home;
+    @XmlElement(name = "work")
+    private String work;
+    @XmlElement(name = "fax")
+    private String fax;
+    @XmlElement(name = "mobile")
+    private String mobile;
 }

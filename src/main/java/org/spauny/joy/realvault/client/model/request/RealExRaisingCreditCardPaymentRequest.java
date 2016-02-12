@@ -1,6 +1,5 @@
 package org.spauny.joy.realvault.client.model.request;
 
-import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -23,7 +22,7 @@ import org.spauny.joy.realvault.client.model.internal.RealExTSSInfo;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RealExRaisingCreditCardPaymentRequest implements Serializable {
+public class RealExRaisingCreditCardPaymentRequest implements RealExRequest {
 
     private static final long serialVersionUID = 1304033126562317761L;
 

@@ -1,49 +1,26 @@
 package org.spauny.joy.realvault.client.model.internal;
 
 import java.io.Serializable;
-import org.spauny.joy.realvault.client.annotations.TagAttribute;
-import org.spauny.joy.realvault.client.annotations.TagName;
-import org.spauny.joy.realvault.client.annotations.TagValue;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@TagName(name="country")
+@XmlRootElement(name = "country")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RealExCountryCode implements Serializable {
-	@TagAttribute(name="code")
-	protected String countryCode;
-	@TagValue
-	protected String countryName;
-	
-	
-	public RealExCountryCode(String countryCode, String countryName) {
-		super();
-		this.countryCode = countryCode;
-		this.countryName = countryName;
-	}
-	/**
-	 * @return the countryCode
-	 */
-	public String getCountryCode() {
-		return countryCode;
-	}
-	/**
-	 * @param countryCode the countryCode to set
-	 */
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-	/**
-	 * @return the countryName
-	 */
-	public String getCountryName() {
-		return countryName;
-	}
-	/**
-	 * @param countryName the countryName to set
-	 */
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
-	}
-	
-	
-	
 
+    private static final long serialVersionUID = -3305941531679166081L;
+    
+    @XmlAttribute(name = "code")
+    private String countryCode;
+    @XmlValue
+    private String countryName;
 }
