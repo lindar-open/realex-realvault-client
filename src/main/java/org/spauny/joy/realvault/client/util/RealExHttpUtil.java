@@ -6,7 +6,7 @@ import org.spauny.joy.realvault.client.model.response.RealExResponse;
 
 public class RealExHttpUtil {
 
-    public static RealExResponse getResponse(String url, String requestXml) throws Exception {
+    public static RealExResponse postRequestAndGetResponse(String url, String requestXml) throws Exception {
         RealExResponse retVal = RealExBeanToXMLConverterUtil.toResponseBean(
                 Request.Post(url).bodyString(requestXml, ContentType.APPLICATION_XML)
                 .execute().returnContent().asString());

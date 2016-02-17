@@ -9,15 +9,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@XmlRootElement(name = "paymentdata")
+@XmlRootElement(name = "cvn")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RealExPaymentData implements Serializable {
+public class RealExCvn implements Serializable {
 
     private static final long serialVersionUID = 2519206691467842599L;
 
-    @XmlElement(name = "cvn")
-    private RealExCvn cvn;
+    @XmlElement(name = "number")
+    private String number;
+
 }
